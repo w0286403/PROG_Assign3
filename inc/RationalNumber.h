@@ -23,7 +23,10 @@ private:
     int numerator;
     int denominator;
     friend ostream& operator<<(ostream&, RationalNumber&);
+
 };
+int findGCD(int,int);
+
 
 
 #endif //ASSIGNMENT_3_RATIONALNUMBER_H

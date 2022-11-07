@@ -28,8 +28,16 @@ RationalNumber::RationalNumber(string number) {
     denominator = stoi(number.substr(0,pos));
 }
 
-RationalNumber RationalNumber::operator+(RationalNumber) {
-    return RationalNumber();
+RationalNumber RationalNumber::operator+(RationalNumber num) {
+
+    //https://prepinsta.com/cpp-program/to-add-two-fractions/
+    int lcm = (denominator*num.denominator)/ findGCD(denominator,num.denominator);
+    int sum = (numerator*(lcm/denominator)) + (num.numerator*(lcm/num.denominator));
+
+    numerator = sum/ findGCD(sum,lcm);
+    denominator = lcm / findGCD(sum,lcm);
+
+    return *this;
 }
 
 RationalNumber RationalNumber::operator-(RationalNumber) {
@@ -60,6 +68,17 @@ bool RationalNumber::operator<(RationalNumber) {
 
 bool RationalNumber::operator==(RationalNumber) {
     return false;
+}
+
+int findGCD(int n1, int n2)
+{
+    int gcd;
+    for(int i=1; i <= n1 && i <= n2; i++)
+    {
+        if(n1%i==0 && n2%i==0)
+            gcd = i;
+    }
+    return gcd;
 }
 
 
