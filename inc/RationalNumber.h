@@ -2,7 +2,7 @@
 // Created by Zack Glenen on 2022-11-07.
 //
 #include <iostream>
-
+#include <cstring>
 
 #ifndef ASSIGNMENT_3_RATIONALNUMBER_H
 #define ASSIGNMENT_3_RATIONALNUMBER_H
@@ -27,7 +27,5 @@ private:
 };
 
 int gcd(int a, int b);
-
-
 
 #endif //ASSIGNMENT_3_RATIONALNUMBER_H

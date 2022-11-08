@@ -5,21 +5,26 @@
 #include "../inc/RationalNumber.h"
 
 RationalNumber::RationalNumber() {
+    cout << "DEFAULT CONSTRUCTOR FIRED" << endl;
     numerator = 0;
     denominator = 1;
 }
 
 RationalNumber::RationalNumber(int p_numerator) {
+    cout << "1 ARG CONSTRUCTOR FIRED" << endl;
     numerator = p_numerator;
     denominator = 1;
 }
 
 RationalNumber::RationalNumber(int p_numerator, int p_denominator) {
+    cout << "2 ARG CONSTRUCTOR FIRED" << endl;
     numerator = p_numerator;
     denominator = p_denominator;
 }
 
 RationalNumber::RationalNumber(string number) {
+    cout << "STRING CONSTRUCTOR FIRED" << endl;
+
     string delimiter = "/";
     size_t pos = number.find(delimiter);
     numerator = stoi(number.substr(0,pos));
@@ -28,6 +33,8 @@ RationalNumber::RationalNumber(string number) {
 }
 
 RationalNumber RationalNumber::operator+(RationalNumber num) const {
+    cout << "+ OPERATOR FIRED" << endl;
+
     int newNumerator = ((numerator*num.denominator)+(denominator*num.numerator));
     int newDenominator = denominator * num.denominator;
     int lcd = gcd(newNumerator,newDenominator);
@@ -38,6 +45,8 @@ RationalNumber RationalNumber::operator+(RationalNumber num) const {
 }
 
 RationalNumber RationalNumber::operator-(RationalNumber num) const {
+    cout << "- OPERATOR FIRED" << endl;
+
     int newNumerator = ((numerator*num.denominator)-(denominator*num.numerator));
     int newDenominator = denominator * num.denominator;
     int lcd = gcd(newNumerator,newDenominator);
@@ -48,6 +57,8 @@ RationalNumber RationalNumber::operator-(RationalNumber num) const {
 }
 
 RationalNumber RationalNumber::operator*(RationalNumber num) const {
+    cout << "* OPERATOR FIRED" << endl;
+
     int newNumerator = numerator * num.numerator;
     int newDenominator = denominator * num.denominator;
 
@@ -59,6 +70,8 @@ RationalNumber RationalNumber::operator*(RationalNumber num) const {
 }
 
 RationalNumber RationalNumber::operator/(RationalNumber num) const {
+    cout << "/ OPERATOR FIRED" << endl;
+
     int newNumerator = numerator * num.denominator;
     int newDenominator = denominator * num.numerator;
 
@@ -70,12 +83,16 @@ RationalNumber RationalNumber::operator/(RationalNumber num) const {
 }
 
 ostream &operator<<(ostream &output, RationalNumber &num) {
+    cout << "OUTPUT OPERATOR FIRED" << endl;
+
     output << "Rational Number: \n";
     output << num.numerator << "/" << num.denominator;
     return output;
 }
 
 bool RationalNumber::operator>(RationalNumber num) const {
+    cout << "> OPERATOR FIRED" << endl;
+
     float leftNum = (float)numerator / (float)denominator;
     float rightNum = (float)num.numerator / (float)num.denominator;
 
@@ -83,6 +100,8 @@ bool RationalNumber::operator>(RationalNumber num) const {
 }
 
 bool RationalNumber::operator<(RationalNumber num) const  {
+    cout << "< OPERATOR FIRED" << endl;
+
     float leftNum = (float)numerator / (float)denominator;
     float rightNum = (float)num.numerator / (float)num.denominator;
 
@@ -90,6 +109,8 @@ bool RationalNumber::operator<(RationalNumber num) const  {
 }
 
 bool RationalNumber::operator==(RationalNumber num) const {
+    cout << "== OPERATOR FIRED" << endl;
+
     float leftNum = (float)numerator / (float)denominator;
     float rightNum = (float)num.numerator / (float)num.denominator;
 
