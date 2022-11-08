@@ -75,28 +75,25 @@ ostream &operator<<(ostream &output, RationalNumber &num) {
     return output;
 }
 
-bool RationalNumber::operator>(RationalNumber) {
-    return false;
+bool RationalNumber::operator>(RationalNumber num) const {
+    float leftNum = (float)numerator / (float)denominator;
+    float rightNum = (float)num.numerator / (float)num.denominator;
+
+    return leftNum > rightNum;
 }
 
-bool RationalNumber::operator<(RationalNumber) {
-    return false;
+bool RationalNumber::operator<(RationalNumber num) const  {
+    float leftNum = (float)numerator / (float)denominator;
+    float rightNum = (float)num.numerator / (float)num.denominator;
+
+    return leftNum < rightNum;
 }
 
-bool RationalNumber::operator==(RationalNumber) {
-    return false;
-}
+bool RationalNumber::operator==(RationalNumber num) const {
+    float leftNum = (float)numerator / (float)denominator;
+    float rightNum = (float)num.numerator / (float)num.denominator;
 
-int findGCD(int n1, int n2)
-{
-    //https://prepinsta.com/cpp-program/to-add-two-fractions/
-    int gcd;
-    for(int i=1; i <= n1 && i <= n2; i++)
-    {
-        if(n1%i==0 && n2%i==0)
-            gcd = i;
-    }
-    return gcd;
+    return leftNum == rightNum;
 }
 
 int gcd(int a, int b) {

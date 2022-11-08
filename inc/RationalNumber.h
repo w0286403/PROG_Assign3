@@ -17,16 +17,15 @@ public:
     RationalNumber operator-(RationalNumber) const;
     RationalNumber operator*(RationalNumber) const;
     RationalNumber operator/(RationalNumber) const;
-    bool operator>(RationalNumber);
-    bool operator<(RationalNumber);
-    bool operator==(RationalNumber);
+    bool operator>(RationalNumber) const;
+    bool operator<(RationalNumber) const;
+    bool operator==(RationalNumber) const;
 private:
     int numerator;
     int denominator;
     friend ostream& operator<<(ostream&, RationalNumber&);
-
 };
-int findGCD(int,int);
+
 int gcd(int a, int b);
 
 
