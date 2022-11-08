@@ -3,6 +3,7 @@
 //
 #include <iostream>
 
+
 #ifndef ASSIGNMENT_3_RATIONALNUMBER_H
 #define ASSIGNMENT_3_RATIONALNUMBER_H
 using namespace std;
@@ -12,10 +13,10 @@ public:
     explicit RationalNumber(int);
     RationalNumber(int, int);
     explicit RationalNumber(string);
-    RationalNumber operator+(RationalNumber);
-    RationalNumber operator-(RationalNumber);
-    RationalNumber operator*(RationalNumber);
-    RationalNumber operator/(RationalNumber);
+    RationalNumber operator+(RationalNumber) const;
+    RationalNumber operator-(RationalNumber) const;
+    RationalNumber operator*(RationalNumber) const;
+    RationalNumber operator/(RationalNumber) const;
     bool operator>(RationalNumber);
     bool operator<(RationalNumber);
     bool operator==(RationalNumber);
@@ -26,6 +27,7 @@ private:
 
 };
 int findGCD(int,int);
+int gcd(int a, int b);
 
 
 
