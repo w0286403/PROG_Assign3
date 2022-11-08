@@ -87,6 +87,7 @@ ostream &operator<<(ostream &output, RationalNumber &num) {
 
     output << "Rational Number: \n";
     output << num.numerator << "/" << num.denominator;
+    output << "\n";
     return output;
 }
 
