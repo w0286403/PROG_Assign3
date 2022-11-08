@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include <cstring>
-#include <regex.h>
+#include <regex>
 
 #ifndef ASSIGNMENT_3_RATIONALNUMBER_H
 #define ASSIGNMENT_3_RATIONALNUMBER_H
