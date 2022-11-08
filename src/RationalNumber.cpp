@@ -21,33 +21,30 @@ RationalNumber::RationalNumber(int p_numerator, int p_denominator) {
 
 RationalNumber::RationalNumber(string number) {
     string delimiter = "/";
-    size_t pos;
-    pos = number.find(delimiter);
+    size_t pos = number.find(delimiter);
     numerator = stoi(number.substr(0,pos));
     number.erase(0,pos + delimiter.length());
-    denominator = stoi(number.substr(0,pos));
+    denominator = stoi(number);
 }
 
 RationalNumber RationalNumber::operator+(RationalNumber num) const {
+    int newNumerator = ((numerator*num.denominator)+(denominator*num.numerator));
+    int newDenominator = denominator * num.denominator;
+    int lcd = gcd(newNumerator,newDenominator);
+    newNumerator = newNumerator / lcd;
+    newDenominator = newDenominator / lcd;
 
-    //https://prepinsta.com/cpp-program/to-add-two-fractions/
-    int lcm = (denominator*num.denominator)/ findGCD(denominator,num.denominator);
-    int sum = (numerator*(lcm/denominator)) + (num.numerator*(lcm/num.denominator));
-
-    int numer = sum/ findGCD(sum,lcm);
-    int denom = lcm / findGCD(sum,lcm);
-
-    return {numer,denom};
+    return {newNumerator,newDenominator};
 }
 
 RationalNumber RationalNumber::operator-(RationalNumber num) const {
-    int lcm = (denominator*num.denominator)/ findGCD(denominator,num.denominator);
-    int sum = (numerator*(lcm/denominator)) - (num.numerator*(lcm/num.denominator));
+    int newNumerator = ((numerator*num.denominator)-(denominator*num.numerator));
+    int newDenominator = denominator * num.denominator;
+    int lcd = gcd(newNumerator,newDenominator);
+    newNumerator = newNumerator / lcd;
+    newDenominator = newDenominator / lcd;
 
-    int numer = sum/ findGCD(sum,lcm);
-    int denom = lcm / findGCD(sum,lcm);
-
-    return {numer,denom};
+    return {newNumerator,newDenominator};
 }
 
 RationalNumber RationalNumber::operator*(RationalNumber num) const {
